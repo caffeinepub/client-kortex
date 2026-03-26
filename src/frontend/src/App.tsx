@@ -113,7 +113,9 @@ const WHY_US = [
 ];
 
 function scrollTo(href: string) {
-  document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  document
+    .querySelector(href)
+    ?.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function useInView(threshold = 0.15) {
@@ -209,7 +211,7 @@ function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               type="button"
-              onClick={() => handleNav("#contact")}
+              onClick={() => handleNav("#join-options")}
               className="px-5 py-2 text-sm font-semibold rounded-full purple-gradient-btn text-white hover:opacity-90 transition-opacity glow-sm"
               data-ocid="nav.primary_button"
             >
@@ -252,7 +254,7 @@ function Navbar() {
               ))}
               <button
                 type="button"
-                onClick={() => handleNav("#contact")}
+                onClick={() => handleNav("#join-options")}
                 className="mt-2 px-5 py-2.5 text-sm font-semibold rounded-full purple-gradient-btn text-white"
                 data-ocid="nav.primary_button"
               >
@@ -331,7 +333,7 @@ function Hero() {
         >
           <button
             type="button"
-            onClick={() => scrollTo("#contact")}
+            onClick={() => scrollTo("#join-options")}
             className="px-8 py-3.5 font-semibold rounded-full purple-gradient-btn text-white text-sm hover:opacity-90 transition-all duration-200 glow-purple shadow-neon-md"
             data-ocid="hero.primary_button"
           >
@@ -476,7 +478,10 @@ function Services() {
           </div>
 
           <AnimatedSection className="text-center mt-12">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div
+              id="join-options"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdsRlTnXnkbgx-E4ns-7CApTOj9d5npKCohVEBxAOa2dO5qwg/viewform?usp=header"
                 target="_blank"
@@ -484,7 +489,7 @@ function Services() {
                 className="px-8 py-3.5 font-semibold rounded-full purple-gradient-btn text-white text-sm hover:opacity-90 transition-opacity glow-sm"
                 data-ocid="services.primary_button"
               >
-                Join as Influencer
+                I am Influencer
               </a>
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLScpRz1ByVma1OrWwGwiZ7eaUea83S1sSdrOmvB-pa9GAMONzA/viewform?usp=header"
@@ -493,7 +498,7 @@ function Services() {
                 className="px-8 py-3.5 font-semibold rounded-full border border-primary/40 text-foreground text-sm hover:bg-primary/10 hover:border-primary/60 transition-all duration-200"
                 data-ocid="services.secondary_button"
               >
-                Join as Brand
+                I am Brand
               </a>
             </div>
           </AnimatedSection>
