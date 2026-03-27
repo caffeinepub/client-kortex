@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import {
+  AlertTriangle,
   BarChart3,
   BriefcaseBusiness,
   CheckCircle2,
@@ -508,6 +509,79 @@ function Services() {
   );
 }
 
+function ImportantNote() {
+  const notes = [
+    {
+      title: "For Influencers",
+      content:
+        "Once the content has been created and published as per the agreed deliverables, the influencer shall not delete, archive, or modify the content before the agreed campaign duration without prior written consent from the brand/agency. Any unauthorized removal or alteration may be considered a breach of contract and can result in legal action and/or financial penalties, including refund of payments received.",
+    },
+    {
+      title: "For Brands",
+      content:
+        "The brand agrees to release payments within the mutually agreed timeline. Any unjustified delay, partial payment, or refusal to pay after satisfactory completion of deliverables shall be treated as a breach of contract. The influencer/agency reserves the right to pursue legal action to recover dues, along with applicable damages and penalties.",
+    },
+    {
+      title: "General",
+      content:
+        "In case of any dispute arising from non-compliance by either party, the affected party retains the right to initiate legal proceedings under applicable laws.",
+    },
+  ];
+
+  return (
+    <section className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-3xl opacity-20"
+          style={{ background: "oklch(0.65 0.15 60)" }}
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6">
+        <AnimatedSection>
+          <div
+            className="rounded-3xl border border-amber-500/30 bg-amber-500/[0.04] p-8 md:p-10 shadow-[0_0_40px_oklch(0.75_0.15_80/0.1)]"
+            data-ocid="important_note.panel"
+          >
+            {/* Heading */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center flex-shrink-0">
+                <AlertTriangle className="w-6 h-6 text-amber-400" />
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-amber-300">
+                Important Note
+              </h2>
+            </div>
+
+            {/* Top amber rule */}
+            <div className="w-full h-px bg-gradient-to-r from-amber-500/50 via-amber-400/20 to-transparent mb-8" />
+
+            {/* Subsections */}
+            <div className="flex flex-col gap-7">
+              {notes.map(({ title, content }, i) => (
+                <AnimatedSection key={title} delay={i * 100}>
+                  <div
+                    className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6"
+                    data-ocid={`important_note.item.${i + 1}`}
+                  >
+                    <h3 className="font-display font-semibold text-amber-400 mb-3 flex items-center gap-2 text-base">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+                      {title}
+                    </h3>
+                    <p className="text-sm text-foreground/60 leading-relaxed">
+                      {content}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 function WhyUs() {
   return (
     <section id="why-us" className="py-28 relative overflow-hidden">
@@ -783,6 +857,7 @@ export default function App() {
         <Hero />
         <About />
         <Services />
+        <ImportantNote />
         <WhyUs />
         <Contact />
       </main>
